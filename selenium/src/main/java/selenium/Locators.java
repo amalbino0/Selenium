@@ -127,7 +127,42 @@ public class Locators {
 		loginbutton.click();
 		
 	}	
+	
+	
+	public void Verifyissellector()
+	{
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demowebshop.tricentis.com/register");
+		driver.manage().window().maximize();
+		WebElement radiofemale=driver.findElement(By.xpath("//input[@id='gender-female']"));
+		boolean over=radiofemale.isSelected();
+		System.out.println("female before selected"+over);
+		driver.close();
+	}
 	    
+	public void verifyisenabled()
+	{
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demowebshop.tricentis.com");
+		driver.manage().window().maximize();
+		WebElement subscribeenabled=driver.findElement(By.xpath("//input[@id='newsletter-subscribe-button']"));
+		boolean buttonenabled=subscribeenabled.isEnabled();
+		System.out.println("button is enabled"+buttonenabled);
+		driver.close();
+		
+	}
+	
+	public void isdisplayed()
+	{
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://demowebshop.tricentis.com");
+		driver.manage().window().maximize();
+		WebElement vote=driver.findElement(By.xpath("//input[@id='vote-poll-1']"));
+		boolean buttondislayed=vote.isDisplayed();
+		System.out.println("button is displayed"+buttondislayed);
+		driver.close();
+		
+	}
 	public static void main(String[] args) {
 	Locators obj=new Locators();
 	//obj.verifyswaplaps();
@@ -136,7 +171,10 @@ public class Locators {
 	//obj.VerifyLinkText();
 	//obj.VerifyPartialLinkText();
 	//obj.AbslouteXpath();
-	obj.CssSelectors();
+	//obj.CssSelectors();
+	//obj.verifyisenabled();
+	//obj.isdisplayed();
+	obj.Verifyissellector();
 	
 
 	}
